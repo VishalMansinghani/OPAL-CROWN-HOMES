@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,6 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #0b0b0b;
   color: white;
-  scroll-behavior: smooth;
 }
 
 /* NAV */
@@ -24,21 +24,43 @@ nav {
   z-index: 1000;
 }
 
-/* HERO */
+/* HERO (UPDATED) */
 .hero {
   height: 100vh;
-  background: url('/mnt/data/861ac411-ae31-4195-8f4c-ae944de9ab80.png') center/cover;
+  background: url('https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/hawa-mahal.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+/* DARK OVERLAY */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
 }
 
-.hero h1 {
-  font-size: 3.5rem;
-  background: rgba(0,0,0,0.6);
-  padding: 20px;
-  border-radius: 12px;
+/* LOGO */
+.hero-content img {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+/* TEXT */
+.hero-content h1 {
+  font-size: 3rem;
 }
 
 /* SECTION */
@@ -49,10 +71,26 @@ nav {
 
 /* GRID */
 .grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  justify-content: center;
+  padding: 20px;
+}
+
+/* GALLERY */
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  cursor: pointer;
+}
+
+/* BIG FIRST IMAGE */
+.gallery a:first-child img {
+  grid-column: span 2;
+  height: 300px;
 }
 
 /* CARDS */
@@ -60,23 +98,6 @@ nav {
   background: #1a1a1a;
   border-radius: 15px;
   padding: 15px;
-  width: 280px;
-  transition: 0.4s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-/* GALLERY */
-.gallery img {
-  width: 300px;
-  border-radius: 12px;
-  transition: 0.4s;
-}
-
-.gallery img:hover {
-  transform: scale(1.08);
 }
 
 /* BUTTON */
@@ -104,20 +125,29 @@ footer {
   <b>Opal Crown Homes 👑</b>
 </nav>
 
-<!-- HERO -->
+<!-- HERO UPDATED -->
 <div class="hero">
-  <h1>Explore Jaipur Like a Royal 👑<br>Opal Crown Homes</h1>
+  <div class="hero-content">
+
+    <img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/BANNER.jpeg" alt="Opal Crown Logo">
+
+    <h1>
+      Explore Jaipur Like a Royal 👑 <br>
+      Opal Crown Homes
+    </h1>
+
+  </div>
 </div>
 
-<!-- ABOUT -->
 <div class="section">
   <h2>Welcome to The Royal Stay</h2>
-  <p>Luxury living in the heart of Jaipur with stunning views, modern interiors, and a premium experience.</p>
+  <p>Luxury living in the heart of Jaipur with stunning views and premium interiors.</p>
 </div>
 
 <!-- GALLERY -->
 <div class="section">
   <h2>🏡 Our Property</h2>
+
   <div class="grid gallery">
 
     <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0229.JPG" target="_blank">
@@ -192,41 +222,18 @@ footer {
       <img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/8169a75d-0684-408f-9745-67f5020e3bc0.avif">
     </a>
 
+
   </div>
 </div>
 
-<!-- PRICE -->
-<div class="section">
-  <h2>💰 Pricing</h2>
-  <div class="grid">
-    <div class="card">₹3,000 / night</div>
-    <div class="card">Weekly Discount Available</div>
-    <div class="card">Luxury Stay Guarantee</div>
-  </div>
-</div>
-
-<!-- LOCATION GUIDE -->
-<div class="section">
-  <h2>📍 Explore Jaipur</h2>
-  <img src="/mnt/data/dfeb6756-a2a2-48c9-b6f0-20bbbf4cd17e.png" width="300">
-</div>
-
-<!-- QR -->
+<!-- LOCATION -->
 <div class="section">
   <h2>📍 Location</h2>
 
-  <a href="https://www.google.co.in/maps/place/Opal+Crown+Homes+-+A+Unit+of+The+Royal+Stay/@26.9335378,75.8241481,17z/data=!3m1!4b1!4m6!3m5!1s0x396db121e1043ce7:0x68b3babd33f10129!8m2!3d26.933533!4d75.826723!16s%2Fg%2F11m_4_jmtd"
-     target="_blank">
-     
-    <button class="btn">📍 View Location on Map</button>
+  <a href="https://www.google.co.in/maps/place/Opal+Crown+Homes" target="_blank">
+    <button class="btn">View Location on Map</button>
   </a>
 
-</div>
-
-<!-- RULES -->
-<div class="section">
-  <h2>House Rules</h2>
-  <img src="/mnt/data/1d6fc8c8-cc72-464f-9e1a-1382d64e239d.png" width="300">
 </div>
 
 <!-- BOOK -->
