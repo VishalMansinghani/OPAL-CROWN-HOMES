@@ -9,7 +9,7 @@
 
  /* GUEST REVIEW */
  
- <script>
+<script>
 let selectedRating = 0;
 
 function rate(num) {
@@ -46,7 +46,6 @@ function submitReview() {
   });
 }
 </script>
-
   
 body {
   margin: 0;
@@ -113,7 +112,7 @@ nav {
 }
 
 
- #stars span {
+#stars span {
   font-size: 25px;
   cursor: pointer;
 }
@@ -293,13 +292,13 @@ footer {
 </div>
 
 <div class="section">
-  <h2>⭐ GUEST REVIEWS </h2>
+  <h2>⭐ GUEST REVIEW </h2>
 
-  <!-- Review Form -->
+  <!-- FORM -->
   <div class="card">
-    <h3>Leave a Review</h3>
+    <input id="name" placeholder="Your Name"
+      style="width:100%; padding:10px; margin-bottom:10px; border-radius:10px;">
 
-    <!-- Star Rating -->
     <div id="stars">
       <span onclick="rate(1)">⭐</span>
       <span onclick="rate(2)">⭐</span>
@@ -310,7 +309,6 @@ footer {
 
     <br>
 
-    <!-- Input -->
     <textarea id="reviewText" placeholder="Write your review..."
       style="width:100%; padding:10px; border-radius:10px;"></textarea>
 
@@ -321,9 +319,11 @@ footer {
 
   <br>
 
-  <!-- Reviews Display -->
+  <!-- DISPLAY -->
   <div id="reviewsContainer" class="grid"></div>
 </div>
+
+ 
  
 <!-- BOOK -->
 <div class="section">
