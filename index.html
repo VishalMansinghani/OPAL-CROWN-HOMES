@@ -1,6 +1,7 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Opal Crown Homes | Jaipur</title>
@@ -9,11 +10,10 @@
   
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b0b0b;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0b0b0b, #1a1a1a, #000);
   color: white;
 }
-
 /* NAV */
 nav {
   position: fixed;
@@ -124,6 +124,14 @@ textarea {
   flex-shrink: 0;
 }
 
+ .slider img {
+  transition: 0.4s;
+}
+
+.slider img:hover {
+  transform: scale(1.08);
+}
+
 .popup {
   display: none;
   position: fixed;
@@ -156,21 +164,20 @@ textarea {
  
 /* BUTTON */
 .btn {
-  background: gold;
+  background: linear-gradient(45deg, gold, #ffcc00);
   color: black;
-  padding: 12px 20px;
-  border-radius: 10px;
+  padding: 12px 25px;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
+  font-weight: bold;
 }
-
 /* CARD */
 .card {
-  background: linear-gradient(145deg, #1a1a1a, #111);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  transition: 0.3s;
+  padding: 20px;
 }
 
 .card:hover {
