@@ -6,6 +6,48 @@
 <title>Opal Crown Homes | Jaipur</title>
 
 <style>
+
+ /* GUEST REVIEW */
+ 
+ <script>
+let selectedRating = 0;
+
+function rate(num) {
+  selectedRating = num;
+
+  let stars = document.querySelectorAll("#stars span");
+  stars.forEach((star, index) => {
+    star.style.opacity = index < num ? "1" : "0.3";
+  });
+}
+
+function submitReview() {
+  let text = document.getElementById("reviewText").value;
+
+  if (text === "" || selectedRating === 0) {
+    alert("Please add rating and review");
+    return;
+  }
+
+  let reviewBox = document.createElement("div");
+  reviewBox.className = "card";
+
+  reviewBox.innerHTML = 
+    "⭐".repeat(selectedRating) + "<br>" + text;
+
+  document.getElementById("reviewsContainer").appendChild(reviewBox);
+
+  // reset
+  document.getElementById("reviewText").value = "";
+  selectedRating = 0;
+
+  document.querySelectorAll("#stars span").forEach(star => {
+    star.style.opacity = "1";
+  });
+}
+</script>
+
+  
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -68,6 +110,17 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
+}
+
+
+ #stars span {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+textarea {
+  height: 80px;
+  border: none;
 }
 
 /* GALLERY */
@@ -239,29 +292,39 @@ footer {
   </div>
 </div>
 
- <div class="section">
-  <h2>⭐ Guest Reviews</h2>
+<div class="section">
+  <h2>⭐ GUEST REVIEWS </h2>
 
-  <div class="grid">
+  <!-- Review Form -->
+  <div class="card">
+    <h3>Leave a Review</h3>
 
-    <div class="card">
-      ⭐⭐⭐⭐⭐ <br>
-      "Amazing stay! Clean rooms and perfect location."
+    <!-- Star Rating -->
+    <div id="stars">
+      <span onclick="rate(1)">⭐</span>
+      <span onclick="rate(2)">⭐</span>
+      <span onclick="rate(3)">⭐</span>
+      <span onclick="rate(4)">⭐</span>
+      <span onclick="rate(5)">⭐</span>
     </div>
 
-    <div class="card">
-      ⭐⭐⭐⭐⭐ <br>
-      "Loved the interiors and hospitality!"
-    </div>
+    <br>
 
-    <div class="card">
-      ⭐⭐⭐⭐⭐ <br>
-      "Best Airbnb experience in Jaipur!"
-    </div>
+    <!-- Input -->
+    <textarea id="reviewText" placeholder="Write your review..."
+      style="width:100%; padding:10px; border-radius:10px;"></textarea>
 
+    <br><br>
+
+    <button class="btn" onclick="submitReview()">Submit Review</button>
   </div>
-</div>
 
+  <br>
+
+  <!-- Reviews Display -->
+  <div id="reviewsContainer" class="grid"></div>
+</div>
+ 
 <!-- BOOK -->
 <div class="section">
   <h2>📲 Book Now</h2>
