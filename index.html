@@ -194,6 +194,10 @@ textarea {
   text-decoration: underline;
 }
 
+ .card {
+  transition: 0.3s;
+}
+
  .floating-btn {
   position: fixed;
   bottom: 20px;
@@ -246,7 +250,7 @@ footer {
   <button class="slider-btn right" onclick="slideRight()">❯</button>
 
 
-</div>
+ 
     <!-- ALL IMAGES -->
 <div class="slider" id="slider">
  
@@ -479,12 +483,6 @@ footer {
  <script>
 let selectedRating = 0;
 
-// Load saved reviews
-window.onload = function () {
-  let saved = JSON.parse(localStorage.getItem("reviews")) || [];
-  saved.forEach(r => displayReview(r));
-};
-
 function rate(num) {
   selectedRating = num;
 
@@ -565,9 +563,16 @@ let popupImg;
 
 // WAIT FOR PAGE LOAD (IMPORTANT FIX)
 window.onload = function () {
+
+  // REVIEWS LOAD
+  let saved = JSON.parse(localStorage.getItem("reviews")) || [];
+  saved.forEach(r => displayReview(r));
+
+  // POPUP LOAD
   images = document.querySelectorAll(".slider img");
   popup = document.getElementById("popup");
   popupImg = document.getElementById("popup-img");
+
 };
 
 function openPopup(src) {
