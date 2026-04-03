@@ -82,24 +82,47 @@ textarea {
   border: none;
 }
 
-/* GALLERY */
-.gallery img {
-  width: 100%;
-  height: 220px;
+ .slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.slider img {
+  width: 280px;
+  height: 200px;
   object-fit: cover;
   border-radius: 12px;
-  transition: 0.3s;
+  flex-shrink: 0;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
 }
 
-.gallery a:first-child img {
-  grid-column: span 2;
-  height: 300px;
+.popup img {
+  max-width: 90%;
+  max-height: 90%;
 }
 
+.popup span {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  cursor: pointer;
+} 
+ 
 /* BUTTON */
 .btn {
   background: gold;
@@ -163,46 +186,29 @@ footer {
   <div class="slider" id="slider">
 
     <!-- ALL IMAGES -->
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/FRONT%20OG.jpg" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/FRONT%20OG.jpg"></a>
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/BALCONY.jpeg" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/BALCONY.jpeg"></a>
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/NIGHT%20VIEW.jpg" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/NIGHT%20VIEW.jpg"></a>
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/TERRACE%20VIEW.jpeg" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/TERRACE%20VIEW.jpeg"></a>
+   <img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/FRONT%20OG.jpg" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/BALCONY.jpeg" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/NIGHT%20VIEW.jpg" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/TERRACE%20VIEW.jpeg" onclick="openPopup(this.src)">
 
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/K%201.JPG" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/K%201.JPG"></a>
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/K%202.jpg" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/K%202.jpg"></a>
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/K%201.JPG" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/K%202.jpg" onclick="openPopup(this.src)">
 
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0223.JPG" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0223.JPG"></a>
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0229.JPG" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0229.JPG"></a>
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0234.JPG" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0234.JPG"></a>
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0249.JPG" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0249.JPG"></a>
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/room%201.avif" target="_blank">
-  <img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/room%201.avif">
-</a>
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0223.JPG" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0229.JPG" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0234.JPG" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/IMG_0249.JPG" onclick="openPopup(this.src)">
 
-<a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/room%203.jpeg" target="_blank">
-  <img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/room%203.jpeg">
-</a>
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/room%201.avif" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/room%203.jpeg" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/room%202.jpeg" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/iron%20table.jpeg" onclick="openPopup(this.src)">
 
-<a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/room%202.jpeg" target="_blank">
-  <img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/room%202.jpeg">
-</a>
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/22d6d1d8-e84c-448c-860d-70c7dd9726b6.avif" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/4e4678ec-e1fb-43a1-a717-2470ff2dfe59.avif" onclick="openPopup(this.src)">
 
-<a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/iron%20table.jpeg" target="_blank">
-  <img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/iron%20table.jpeg">
-</a>
-
-<a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/22d6d1d8-e84c-448c-860d-70c7dd9726b6.avif" target="_blank">
-  <img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/22d6d1d8-e84c-448c-860d-70c7dd9726b6.avif">
-</a>
-
-<a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/4e4678ec-e1fb-43a1-a717-2470ff2dfe59.avif" target="_blank">
-  <img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/4e4678ec-e1fb-43a1-a717-2470ff2dfe59.avif">
-</a>
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/R6__0075.jpg" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/R6__0075.jpg"></a>
-    
-    <a href="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/RECEPTION.avif" target="_blank"><img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/RECEPTION.avif"></a>
-
-   
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/R6__0075.jpg" onclick="openPopup(this.src)">
+<img src="https://raw.githubusercontent.com/VishalMansinghani/OPAL-CROWN-HOMES/main/RECEPTION.avif" onclick="openPopup(this.src)">
   </div>
 </div>
 
@@ -273,8 +279,7 @@ footer {
     <br>
 
    <!-- BOOK -->
-<div class="section">
-  <h2>📲 Book Now</h2>
+
   <a href="https://wa.me/919024290235">
     <button class="btn">Book via WhatsApp</button>
   </a>
@@ -297,7 +302,9 @@ footer {
   <!-- DISPLAY -->
   <div id="reviewsContainer" class="grid"></div>
 </div>
-
+ 
+<div class="section">
+  <h2>📲 Book Now</h2>
  
  
  <script>
