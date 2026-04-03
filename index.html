@@ -245,9 +245,6 @@ footer {
   <button class="slider-btn left" onclick="slideLeft()">❮</button>
   <button class="slider-btn right" onclick="slideRight()">❯</button>
 
-  <div class="slider" id="slider">
-    <!-- images -->
-  </div>
 
 </div>
     <!-- ALL IMAGES -->
@@ -372,6 +369,17 @@ footer {
 <a href="https://wa.me/919024290235">
   <button class="btn">Book Now</button>
 </a>
+
+ <div class="section">
+  <h2>✨ Highlights</h2>
+
+  <div class="grid">
+    <div class="card">📺 70" Smart TV</div>
+    <div class="card">🍳 Fully Equipped Kitchen</div>
+    <div class="card">❄ Fully AC</div>
+    <div class="card">🎲 Games & Entertainment</div>
+  </div>
+</div>
 
 <div class="section">
   <h2>📍 Location</h2>
@@ -533,31 +541,6 @@ function displayReview(r) {
 </script>
 
  
- <div class="popup" id="popup">
-  <span onclick="closePopup()">✖</span>
-  <img id="popup-img">
-</div>
- 
-
- <script>
-function openPopup(src) {
-  document.getElementById("popup").style.display = "flex";
-  document.getElementById("popup-img").src = src;
-}
-
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
-
-function scrollLeft() {
-  document.getElementById("slider").scrollBy({ left: -300, behavior: 'smooth' });
-}
-
-function scrollRight() {
-  document.getElementById("slider").scrollBy({ left: 300, behavior: 'smooth' });
-}
-</script>
-
   <script>
  function slideLeft() {
   document.getElementById("slider").scrollBy({
@@ -574,11 +557,18 @@ function slideRight() {
 }
 </script>
 
- <script>
+<script>
 let currentIndex = 0;
-const images = document.querySelectorAll(".slider img");
-const popup = document.getElementById("popup");
-const popupImg = document.getElementById("popup-img");
+let images = [];
+let popup;
+let popupImg;
+
+// WAIT FOR PAGE LOAD (IMPORTANT FIX)
+window.onload = function () {
+  images = document.querySelectorAll(".slider img");
+  popup = document.getElementById("popup");
+  popupImg = document.getElementById("popup-img");
+};
 
 function openPopup(src) {
   popup.style.display = "flex";
